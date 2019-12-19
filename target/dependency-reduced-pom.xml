@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>fr.neatmonster</groupId>
+  <artifactId>nocheatplus</artifactId>
+  <name>NoCheatPlus</name>
+  <version>3.16.1-SNAPSHOT</version>
+  <description>Detect and fight the exploitation of various flaws/bugs in Minecraft.</description>
+  <url>https://dev.bukkit.org/projects/nocheatplus</url>
+  <build>
+    <defaultGoal>clean package</defaultGoal>
+    <resources>
+      <resource>
+        <targetPath>.</targetPath>
+        <filtering>true</filtering>
+        <directory>..</directory>
+        <includes>
+          <include>LICENSE.txt</include>
+        </includes>
+      </resource>
+      <resource>
+        <targetPath>.</targetPath>
+        <filtering>true</filtering>
+        <directory>../NCPPlugin/src/main/resources</directory>
+        <includes>
+          <include>plugin.yml</include>
+        </includes>
+      </resource>
+    </resources>
+    <directory>../target</directory>
+    <finalName>NoCheatPlus</finalName>
+    <plugins>
+      <plugin>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>1.4</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <artifactSet>
+                <includes>
+                  <include>fr.neatmonster:*</include>
+                </includes>
+              </artifactSet>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <configuration />
+      </plugin>
+    </plugins>
+  </build>
+  <distributionManagement>
+    <repository>
+      <id>md_5-releases</id>
+      <url>https://repo.md-5.net/content/repositories/releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>md_5-snapshots</id>
+      <url>https://repo.md-5.net/content/repositories/snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+</project>
+

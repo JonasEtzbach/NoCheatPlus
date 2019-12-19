@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: NCPCompatSpigotCB1_8_R3
+Bundle-SymbolicName: NCPCompatSpigotCB1_8_R3
+Bundle-Version: 1.0.0.qualifier
